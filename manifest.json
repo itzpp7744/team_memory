@@ -1,14 +1,21 @@
 {
-  "version": "0.1.1",
-  "commit": "e7703750cd454b9dfd191f3bde0ae44936758ba4",
-  "files": 37,
-  "sha256": "0e3cdffc04fa8a42745d023c0eb77ef7d702c11cf8df09df1510764d1dfc6fd8",
-  "repository": "https://github.com/itzpp7744/team_memory",
+  "version": "0.2.0",
+  "source_commit": "8f71b7b29a69e0de11e787f27ce9fc82fa839330",
+  "archive": "department-agent-kit-v0.2.0.zip",
+  "archive_root": "department-agent-kit-0.2.0",
+  "sha256": "27a8d766e9c912cc16cb6b78d50ba92a7c41b54f8e767df1ee6afd2d3c14d8bd",
+  "file_count": 58,
+  "skills": 6,
+  "memory_format": "pp-memory/1",
   "tests": {
-    "baseline_passed": 54,
-    "baseline_skipped": 0,
-    "installer_rerun_passed": 24,
-    "runtime_code_unchanged_since_baseline": true
+    "passed": 76,
+    "skipped": 0,
+    "environment": "macOS / Python 3.13 / isolated local PostgreSQL 16"
   },
-  "cloud_deployed": false
+  "live_google_drive_verified": false,
+  "cloud_deployed": false,
+  "obsidian_onboarding": "guided; verify on each device",
+  "drive_folder_created": true,
+  "drive_sharing_status": "pending as reported by administrator",
+  "release_date": "2026-10-27"
 }

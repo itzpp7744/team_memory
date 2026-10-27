@@ -1,43 +1,27 @@
-# 給接手安裝的 AI
+# PP 團隊唯一安裝入口
 
-> **2026-10-27 更新：PP 團隊先用 Google Drive。** 安裝前先讀 [Google Drive 安裝補充](GOOGLE_DRIVE_SETUP.md)，其共享文件步驟優先於本頁及 ZIP 內的 SharePoint／OneDrive 說明。現有雲端文件連接僅支援 Microsoft，尚未接上 Google Drive。
+目前版本 **0.2.0**。本 repo 是私人儲存庫，需先取得管理者授權並以自己的 GitHub 存取方式開啟；不要把登入憑證貼進聊天。
 
-這是交付入口，完整安裝流程在 ZIP 裡。先完成以下步驟，再讀包內的 `START_HERE.md`。
+## 給安裝 AI
 
-1. 從 `https://github.com/itzpp7744/team_memory` 下載或 clone 到使用者選定的新資料夾；該位置須在共享文件區以外。私人 repo 由本人登入取得存取權，不要求把密碼或 token 貼進對話。
-2. 讀取本層 `manifest.json` 與 `SHA256SUMS`，核對 `department-agent-kit-v0.1.1.zip` 的 SHA-256（檔案內容的指紋）。不同就停止，不安裝。
-3. 檢查 ZIP 項目只在 `department-agent-kit/` 底下，沒有絕對路徑、`..` 或符號連結；目標 `department-agent-kit` 資料夾已存在就停止，不覆寫。
-4. 解壓到這個交付資料夾，保留隱藏檔；再讀 `department-agent-kit/START_HERE.md`、`AGENTS.md`、`CLAUDE.md`、`README.md`。
-5. 切到 `department-agent-kit`，依 Google Drive 補充文件確認共享路徑，並依包內流程確認本人成員、共同專案代號和私有路徑。執行 `plan`、`install`、`doctor`，再做雙向檔案驗收。有正式服務網址才設定雲端工具。
+1. 下載同一版本的 [安裝包](department-agent-kit-v0.2.0.zip)、[SHA256SUMS](SHA256SUMS) 與 [manifest.json](manifest.json)。不要選舊版 0.1.1。
+2. 比對 ZIP 的 SHA-256（檔案指紋，用來確認下載內容沒有變）。macOS 用 `shasum -a 256 department-agent-kit-v0.2.0.zip`；Windows PowerShell 用 `Get-FileHash .\department-agent-kit-v0.2.0.zip -Algorithm SHA256`。結果須與 SHA256SUMS 完全一致。
+3. 檢查 ZIP 項目都在 `department-agent-kit-0.2.0/` 下，沒有絕對路徑、`..` 或符號連結，再解壓到專用新資料夾。不要覆寫現有專案，不要把套件放進 Google Drive 共享專案。
+4. 進入解壓後的 `department-agent-kit-0.2.0`，完整讀取該目錄的 `START_HERE.md`，依它執行。套件保留在原位置，後續檢查仍會使用。
+5. 沿用已知資訊，只補問缺少的：成員 Wilson／Avril、共同專案代號、私有工作區路徑、實際 Google Drive 共享路徑。Avril 所有電腦都用 Avril 身分。
+6. 依序預覽、安裝、檢查；在私有工作區確認 6 個 Skills、建立並驗證記憶草稿，再由兩人做真實雙向文件驗收。
 
-## 核對與解壓指令
+PP Gmail 是 `itzpp7744@gmail.com`；這只是團隊帳號識別，不表示已授權登入。Google Drive 詳見包內設定指南；本頁的 [Google Drive 摘要](GOOGLE_DRIVE_SETUP.md) 供管理者先準備。
 
-以下從本檔所在資料夾執行。先核對指紋，再確認解壓目標不存在。Python 需要 3.11+。
+## 界線
 
-Windows PowerShell（Wilson；Avril 備用 Windows 也適用）：
+- 不覆寫個人規則、不改全域 Skills、不連私人資料庫，不掃描私人聊天。
+- 本機草稿成功要說「已存本機、未送出」。管理者尚未提供及部署正式服務時，不自行找 Neon 密碼，不宣稱手機 Claude 已接通。
+- Google Drive 同步文件；Neon 未接通前沒有正式共用記憶。共同資料夾的檔案檢查不能取代兩台實機驗收。
+- 網頁／手機 AI 若不能操作本機，請將這份入口交給電腦上的 Claude Code；無法存取私人 repo 時，由有權限者下載上述檔案交給本機 AI。
 
-```powershell
-Get-FileHash .\department-agent-kit-v0.1.1.zip -Algorithm SHA256
-Get-Content .\SHA256SUMS
-Test-Path .\department-agent-kit
-# 只有指紋相同、上述 Test-Path 為 False，且 ZIP 項目檢查通過後才解壓：
-py -3 -m zipfile -e .\department-agent-kit-v0.1.1.zip .
-```
+最後回報：成員、專案、版本、實際路徑、6 個 Skills、草稿檢查、雙向同步及雲端狀態。未驗證的項目要分開列出。
 
-macOS（Avril）：
+安裝後請繼續套件內的 pp-onboarding：先查 Obsidian 是否已安裝、保留私人 Vault，再打開正確團隊資料夾；完成閱讀／修改／同步練習。要提出新功能或分享自己做的技能，使用 pp-team-improvement，經審閱後更新發布。
 
-```sh
-shasum -a 256 -c SHA256SUMS
-# 確認目標尚未存在，並完成 ZIP 項目檢查後才解壓：
-test ! -e department-agent-kit && python3 -m zipfile -e department-agent-kit-v0.1.1.zip .
-```
-
-上述註解是執行前提，不要把整段當成無條件安裝指令。AI 須實際讀取核對結果，不能因解壓成功就略過指紋或路徑檢查。
-
-## 已知裝置與身分
-
-Wilson：Windows。Avril：Mac 為主，另有公司電腦。Avril 每台都使用 `Avril` 成員名稱、同一公司 Microsoft 身分與同一專案代號，各台填自己的路徑；不要搬用另一台的 `.department-agent` 或 `.mcp.json`。
-
-公司身分由 Microsoft 登入驗證；本機 `--member` 只是名稱，不是授權。兩人各自登入自己的公司帳號，不共用 Neon 金鑰。沒有正式服務網址時先完成本機工作，雲端狀態明確保留「尚未設定」。
-
-本包沒有部署到既有 Neon，也沒有修改使用者原本的專案。管理者部署要另依包內 `docs/ADMIN_SETUP.md` 進行。
+管理者已建立 [PP 團隊專案](https://drive.google.com/drive/folders/1_OrdKAQBzqSQt9EIaKza9SwzA4GvZ2-J)，交付時尚未分享給兩人；先確認權限。未來新同仁加入需先擴充目前只允許 Wilson／Avril 的版本。
