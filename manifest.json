@@ -1,14 +1,15 @@
 {
-  "version": "0.2.0",
-  "source_commit": "8f71b7b29a69e0de11e787f27ce9fc82fa839330",
-  "archive": "department-agent-kit-v0.2.0.zip",
-  "archive_root": "department-agent-kit-0.2.0",
-  "sha256": "27a8d766e9c912cc16cb6b78d50ba92a7c41b54f8e767df1ee6afd2d3c14d8bd",
-  "file_count": 58,
+  "version": "0.2.1",
+  "source_commit": "5db7218ccb175f16bf67097971207c3091eb87f5",
+  "archive": "department-agent-kit-v0.2.1.zip",
+  "archive_root": "department-agent-kit-0.2.1",
+  "sha256": "bfa0990a53c0f2e6f47dd7231b5bc2ba7135e667eb28ee62b3627761f9f0c0f1",
+  "file_count": 59,
   "skills": 6,
-  "memory_format": "pp-memory/1",
+  "memory_format": "pp-memory/2",
+  "members": "Any valid member label supplied during onboarding; does not grant access",
   "tests": {
-    "passed": 76,
+    "passed": 90,
     "skipped": 0,
     "environment": "macOS / Python 3.13 / isolated local PostgreSQL 16"
   },
