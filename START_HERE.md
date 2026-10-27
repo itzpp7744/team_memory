@@ -1,12 +1,14 @@
 # 給接手安裝的 AI
 
+> **2026-10-27 更新：PP 團隊先用 Google Drive。** 安裝前先讀 [Google Drive 安裝補充](GOOGLE_DRIVE_SETUP.md)，其共享文件步驟優先於本頁及 ZIP 內的 SharePoint／OneDrive 說明。現有雲端文件連接僅支援 Microsoft，尚未接上 Google Drive。
+
 這是交付入口，完整安裝流程在 ZIP 裡。先完成以下步驟，再讀包內的 `START_HERE.md`。
 
 1. 從 `https://github.com/itzpp7744/team_memory` 下載或 clone 到使用者選定的新資料夾；該位置須在共享文件區以外。私人 repo 由本人登入取得存取權，不要求把密碼或 token 貼進對話。
 2. 讀取本層 `manifest.json` 與 `SHA256SUMS`，核對 `department-agent-kit-v0.1.1.zip` 的 SHA-256（檔案內容的指紋）。不同就停止，不安裝。
 3. 檢查 ZIP 項目只在 `department-agent-kit/` 底下，沒有絕對路徑、`..` 或符號連結；目標 `department-agent-kit` 資料夾已存在就停止，不覆寫。
 4. 解壓到這個交付資料夾，保留隱藏檔；再讀 `department-agent-kit/START_HERE.md`、`AGENTS.md`、`CLAUDE.md`、`README.md`。
-5. 切到 `department-agent-kit`，依包內流程確認本人成員、共同專案代號、私有與共享路徑。執行 `plan`、`install`、`doctor`，再做雙向檔案驗收。有正式服務網址才設定雲端工具。
+5. 切到 `department-agent-kit`，依 Google Drive 補充文件確認共享路徑，並依包內流程確認本人成員、共同專案代號和私有路徑。執行 `plan`、`install`、`doctor`，再做雙向檔案驗收。有正式服務網址才設定雲端工具。
 
 ## 核對與解壓指令
 
