@@ -1,22 +1,52 @@
 {
-  "version": "0.2.1",
-  "source_commit": "5db7218ccb175f16bf67097971207c3091eb87f5",
-  "archive": "department-agent-kit-v0.2.1.zip",
-  "archive_root": "department-agent-kit-0.2.1",
-  "sha256": "bfa0990a53c0f2e6f47dd7231b5bc2ba7135e667eb28ee62b3627761f9f0c0f1",
-  "file_count": 59,
+  "version": "0.3.0",
+  "source_commit": "4feba7c0aeec032294681cf8299869186624dee8",
+  "archive": "department-agent-kit-v0.3.0.zip",
+  "archive_root": "department-agent-kit-0.3.0",
+  "sha256": "780f97255625d8fcd9ff70797b14051850768bb1273e6a8d4de9f75acdbca471",
+  "file_count": 86,
   "skills": 6,
   "memory_format": "pp-memory/2",
-  "members": "Any valid member label supplied during onboarding; does not grant access",
+  "members": "Any member label; administrator approval of individual Google account required",
   "tests": {
-    "passed": 90,
+    "service": 28,
+    "installer_and_drafts": 57,
+    "total": 85,
+    "failed": 0,
     "skipped": 0,
-    "environment": "macOS / Python 3.13 / isolated local PostgreSQL 16"
+    "build": "PASS",
+    "environment": "macOS; Node 24; Python 3.13; isolated local PostgreSQL 16"
   },
+  "cloud_deployed": true,
+  "cloud_services": [
+    "Postgres",
+    "Functions"
+  ],
+  "google_login_verified": true,
+  "claude_web_and_code_shared_memory_verified": true,
+  "shared_memory_evidence": {
+    "date": "2026-10-28",
+    "record_id": "ea1641a4-9db6-4838-a051-63a2e13b55f7",
+    "flow": "Code writes v1; web reads v1 and updates v2; Code reads same record v2",
+    "retry_deduplication": "PASS",
+    "stale_version_rejected": "PASS"
+  },
+  "memory_routing": {
+    "start": "PP 開工 then current human confirmation",
+    "stop": [
+      "PP 收工",
+      "切換私人"
+    ],
+    "per_reply_destination_banner": true,
+    "default": "PP writes disabled by AI instructions",
+    "enforcement": "AI instructions and client approval, not a server-side conversation lock"
+  },
+  "mcp_url": "https://br-sweet-water-a19q69sy-ppmemory.compute.c-1.ap-southeast-1.aws.neon.tech/mcp",
   "live_google_drive_verified": false,
-  "cloud_deployed": false,
+  "phone_claude_verified": false,
+  "windows_device_verified": false,
   "obsidian_onboarding": "guided; verify on each device",
-  "drive_folder_created": true,
-  "drive_sharing_status": "pending as reported by administrator",
-  "release_date": "2026-10-27"
+  "drive_sharing_status": "pending individual permissions",
+  "cost_changes": "No paid upgrade; free-tier limits apply",
+  "release_date": "2026-10-28"
 }

@@ -1,27 +1,57 @@
 # PP 團隊唯一安裝入口
 
-目前版本 **0.2.1**。本 repo 是私人儲存庫，需先取得管理者授權並以自己的 GitHub 存取方式開啟；不要把登入憑證貼進聊天。
+版本 **0.3.0**。記憶服務已部署，網頁 Claude 與 Claude Code 的同一筆記憶雙向讀寫已驗證。請讓電腦上的 Claude Code 依本文件執行。
 
 ## 給安裝 AI
 
-1. 下載同一版本的 [安裝包](department-agent-kit-v0.2.1.zip)、[SHA256SUMS](SHA256SUMS) 與 [manifest.json](manifest.json)。不要選舊版 0.1.1。
-2. 比對 ZIP 的 SHA-256（檔案指紋，用來確認下載內容沒有變）。macOS 用 `shasum -a 256 department-agent-kit-v0.2.1.zip`；Windows PowerShell 用 `Get-FileHash .\department-agent-kit-v0.2.1.zip -Algorithm SHA256`。結果須與 SHA256SUMS 完全一致。
-3. 檢查 ZIP 項目都在 `department-agent-kit-0.2.1/` 下，沒有絕對路徑、`..` 或符號連結，再解壓到專用新資料夾。不要覆寫現有專案，不要把套件放進 Google Drive 共享專案。
-4. 進入解壓後的 `department-agent-kit-0.2.1`，完整讀取該目錄的 `START_HERE.md`，依它執行。套件保留在原位置，後續檢查仍會使用。
-5. 沿用已知資訊，只補問缺少的：本人姓名／唯一團隊稱呼、共同專案代號、私有工作區路徑、實際 Google Drive 共享路徑。Avril 所有電腦都用 Avril 身分。
-6. 依序預覽、安裝、檢查；在私有工作區確認 6 個 Skills、建立並驗證記憶草稿，再由兩人做真實雙向文件驗收。
+1. 確認本人可讀這個私人 GitHub repo。若無權限，請管理者邀請其 GitHub 帳號，或由有權限者交付下面三個檔案；不要索取管理者密碼。
+2. 下載同一版本的 [安裝包](department-agent-kit-v0.3.0.zip)、[SHA256SUMS](SHA256SUMS) 與 [manifest.json](manifest.json)。
+3. 比對 ZIP 的 SHA-256（檔案指紋，用來確認下載內容沒有變）。macOS：`shasum -a 256 department-agent-kit-v0.3.0.zip`；Windows PowerShell：`Get-FileHash .\department-agent-kit-v0.3.0.zip -Algorithm SHA256`。結果須與 SHA256SUMS 完全一致。
+4. 檢查 ZIP 都在 `department-agent-kit-0.3.0/` 下，沒有絕對路徑、`..` 或符號連結，再解壓到專用新資料夾。不要覆寫現有專案，也不要解壓進 Drive 共享資料夾。
+5. 完整讀取解壓後的 `START_HERE.md`，它是實際安裝步驟。先問本人姓名／唯一團隊稱呼與要登入的 Google 帳號，不限定既有成員；同一人換電腦沿用相同身分。
+6. **先完成記憶連線**：管理者核准個人 Google 帳號；在 Claude Code 設定 PP MCP（讓 AI 呼叫記憶服務的連接介面），並在網頁 Claude 新增「PP 共用記憶」連接器，兩邊各自登入同一個 Google 帳號。
+7. 兩端各自在當前對話完成「PP 開工」與本人「確認」後，才實際寫入一筆測試記憶、跨介面讀回同一個 id，再更新並確認版本增加。失敗就保留原錯誤處理，不把本機草稿說成已共享。
+8. 記憶通過後，再確認 Drive 分享與這台電腦的實際同步路徑、安裝 6 個 Skills、檢查 Obsidian 是否已安裝、保留私人 Vault（筆記資料夾），最後做雙向文件練習。
 
-PP Gmail 是 `itzpp7744@gmail.com`；這只是團隊帳號識別，不表示已授權登入。Google Drive 詳見包內設定指南；本頁的 [Google Drive 摘要](GOOGLE_DRIVE_SETUP.md) 供管理者先準備。
+PP 記憶服務：
 
-## 界線
+```text
+https://br-sweet-water-a19q69sy-ppmemory.compute.c-1.ap-southeast-1.aws.neon.tech/mcp
+```
 
-- 不覆寫個人規則、不改全域 Skills、不連私人資料庫，不掃描私人聊天。
-- 本機草稿成功要說「已存本機、未送出」。管理者尚未提供及部署正式服務時，不自行找 Neon 密碼，不宣稱手機 Claude 已接通。
-- Google Drive 同步文件；Neon 未接通前沒有正式共用記憶。共同資料夾的檔案檢查不能取代兩台實機驗收。
-- 網頁／手機 AI 若不能操作本機，請將這份入口交給電腦上的 Claude Code；無法存取私人 repo 時，由有權限者下載上述檔案交給本機 AI。
+共同專案代號是 `pp-product`。此網址不是資料庫密碼；只有已核准並登入的成員能讀寫。不要讓成員另建 Neon 專案，不要索取資料庫連線字串、Google 密鑰或管理用 Neon MCP。
 
-最後回報：成員、專案、版本、實際路徑、6 個 Skills、草稿檢查、雙向同步及雲端狀態。未驗證的項目要分開列出。
+Claude Code 的本人 Claude 訂閱登入與 PP 的 Google 登入是兩件事。首次只允許當次 MCP 時，照包內說明在同一次 Claude Code 對話用 `/mcp` 完成驗證，不要為了跳過提示開放全部工具。
 
-安裝後請繼續套件內的 pp-onboarding：先查 Obsidian 是否已安裝、保留私人 Vault，再打開正確團隊資料夾；完成閱讀／修改／同步練習。要提出新功能或分享自己做的技能，使用 pp-team-improvement，經審閱後更新發布。
+## 管理者要準備
 
-管理者已建立 [PP 團隊專案](https://drive.google.com/drive/folders/1_OrdKAQBzqSQt9EIaKza9SwzA4GvZ2-J)，交付時尚未分享給兩人；先確認權限。新人可直接沿用同一包，安裝 AI 先問姓名，再建立自己的工作區及修改提案區。管理者另授予共享權限。
+- 私人 repo 讀取權限，或代交 ZIP、SHA256SUMS、manifest。
+- 成員本人的 Google 帳號，加入 PP 記憶核准名單與 Google 登入測試使用者；這兩項都完成後才能登入。管理指令在包內 `docs/ADMIN_SETUP.md`。
+- [PP 團隊專案](https://drive.google.com/drive/folders/1_OrdKAQBzqSQt9EIaKza9SwzA4GvZ2-J) 的個別分享權限，詳見 [Drive 設定](GOOGLE_DRIVE_SETUP.md)。尚未分享不妨礙先驗收記憶。
+
+安裝 AI 回報本人稱呼、版本、Google 登入狀態、跨介面記憶的 id／版本、Skills 與文件同步／Obsidian 結果。私人 email 與電腦路徑留在必要的私有驗收紀錄；未驗證項目分開列明。手機 Claude 仍需在本人手機實測，原生聊天不會自動合併。
+
+## 同時使用私人與團隊記憶
+
+個人求職、履歷、職涯、健康、財務與人際內容，不因為發生在工作對話就能寫入 PP。只有 PP 專案需要、本人明確同意讓該專案核准成員看見的決策、規格、交接及共同待辦才送 PP。混合或不確定時先不寫入任何雲端，拆出必要摘要再確認。其他公司的機密、受限人事資料與密鑰也不能改存私人記憶來繞過限制。
+
+PP 工作對話只開 PP 記憶工具，私人對話關閉 PP；Claude Code 使用專用工作區與明確指定的 MCP 設定。對話名稱與資料夾名稱只是提示，不是存取限制。網頁 Claude 依包內 START_HERE 貼上同一份分流規則，本機 Skills 不會自動套用到網頁。
+
+寫入或更正前，AI 顯示「目的地：PP 團隊／pp-product；可見者：該專案核准成員；本次摘要：……」。只有清楚涵蓋這份內容與分享範圍的授權才能執行；已清楚授權的不重複詢問。工具權限可維持逐次確認。這些是誤存防護，並非能保證辨識所有私人內容的伺服器過濾器。
+
+## 每次對話的團隊記憶開關
+
+預設關閉團隊寫入。輸入 **PP 開工**（Claude Code 可用 `/pp-start-work`），AI 先確認「PP／pp-product、該專案核准成員可見、只保存本次經同意的 PP 內容」，本人回覆 **確認** 後才在這次對話開啟。輸入 **PP 收工** 或 **切換私人** 即關閉；新對話、接續舊對話或從摘要恢復，都要重新確認。
+
+尚未開啟時，禁止新增或更正團隊記憶與待辦；明確要求讀取 PP 資料則可只讀。開啟後仍不自動保存整段聊天，也不包含私人內容或未授權的跨資料庫搬運。網頁 Claude 請貼入包內 START_HERE 的完整規則後使用，單獨一句口令不會自行安裝規則。
+
+這是 AI 執行規則，並非服務端驗證口令的硬性鎖。保留寫入工具的逐次確認提示；若要從技術上完全不能誤寫，需再做由真人控制的唯讀／可寫授權機制。
+
+開場須說明上述開關，提供「PP 開工／維持私人」文字選項。之後每次 AI 回覆第一行都顯示目前記憶模式：
+
+- 未開啟：`【記憶未開啟｜PP：不寫入】`
+- 已輸入開工但尚未確認：`【等待確認｜PP：不寫入】`
+- 已由本人確認：`【PP 模式｜記憶目的地：PP 團隊／pp-product｜只保存經確認的 PP 摘要】`
+- 已切私人：`【私人模式｜PP 寫入關閉｜私人記憶庫另行確認】`
+
+這行是目前的寫入規則，並非保存成功的通知。實際寫入後另列目的地、摘要、id 與 version；沒有工具成功結果就明說未保存。不得自行推測私人記憶庫的名稱或位置。以上只控制自建記憶服務的寫回，不代表 Claude 平台不保存聊天紀錄。
